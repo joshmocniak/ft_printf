@@ -6,7 +6,7 @@
 #    By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 14:34:25 by jmocniak          #+#    #+#              #
-#    Updated: 2018/12/17 15:07:27 by jmocniak         ###   ########.fr        #
+#    Updated: 2018/12/17 15:08:26 by jmocniak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,6 @@ clean:
 fclean: clean
 	rm -f $(NAME).a
 
-re: fclean all
+re:
 
 .PHONY: all clean fclean re
