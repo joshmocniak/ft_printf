@@ -6,7 +6,7 @@
 #    By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 14:34:25 by jmocniak          #+#    #+#              #
-#    Updated: 2018/12/17 14:43:17 by jmocniak         ###   ########.fr        #
+#    Updated: 2018/12/17 14:58:59 by jmocniak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,15 +14,15 @@ NAME := ft_printf
 
 FLAGS := -Wall -Werror -Wextra -I includes/
 
-SRCDIR := src/
+SRCDIR := ./src/
 
-OBJDIR := obj/
+OBJDIR := ./obj/
 
 SRC := $(wildcard $(SRCDIR)*.c)
 
 OBJ := $(patsubst $(SRCDIR)%.c,$(OBJDIR)%.o,$(SRC))
 
-INCLUDES := includes/
+INCLUDES := ./includes/
 
 
 all: $(NAME).a
