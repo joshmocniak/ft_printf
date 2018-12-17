@@ -6,13 +6,13 @@
 #    By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 14:34:25 by jmocniak          #+#    #+#              #
-#    Updated: 2018/12/17 14:58:59 by jmocniak         ###   ########.fr        #
+#    Updated: 2018/12/17 15:07:27 by jmocniak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME := ft_printf
 
-FLAGS := -Wall -Werror -Wextra -I includes/
+FLAGS := -Wall -Werror -Wextra -I ./includes/
 
 SRCDIR := ./src/
 
