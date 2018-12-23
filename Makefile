@@ -6,7 +6,7 @@
 #    By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 14:34:25 by jmocniak          #+#    #+#              #
-#    Updated: 2018/12/23 15:51:17 by jmocniak         ###   ########.fr        #
+#    Updated: 2018/12/23 15:59:45 by jmocniak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ $(NAME).a: $(OBJ) $(INCLUDES)$(NAME).h
 libft.a:
 	@make -C libft
 	cp ./libft/libft.a .
-	cp libft.a ./usr/src/test/tester_docker/
+	cp libft.a /usr/src/test/tester_docker/
 
 clean:
 	rm -Rf $(OBJDIR)
