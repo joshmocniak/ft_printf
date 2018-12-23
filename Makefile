@@ -6,7 +6,7 @@
 #    By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 14:34:25 by jmocniak          #+#    #+#              #
-#    Updated: 2018/12/23 15:50:10 by jmocniak         ###   ########.fr        #
+#    Updated: 2018/12/23 15:51:17 by jmocniak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,11 +37,11 @@ $(NAME).a: $(OBJ) $(INCLUDES)$(NAME).h
 	ar rc $(NAME).a $(OBJ)
 	ranlib $(NAME).a
 	cp $(NAME).a /usr/src/test/tester_docker/
-	cp /includes/* /usr/src/test/tester_docker/
+	cp ./includes/* /usr/src/test/tester_docker/
 
 libft.a:
 	@make -C libft
-	cp libft/libft.a .
+	cp ./libft/libft.a .
 	cp libft.a ./usr/src/test/tester_docker/
 
 clean:
