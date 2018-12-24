@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/04 19:47:10 by jmocniak          #+#    #+#             */
-/*   Updated: 2018/12/23 15:07:57 by jmocniak         ###   ########.fr       */
+/*   Updated: 2018/12/23 16:14:59 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,7 +225,7 @@ int		helper(va_list *ap, const char * restrict format)
 	return (num);
 }
 
-int		ft_printf(const char * restrict format, ...)
+int		ft_printf(char *format, ...)
 {
 	va_list	ap;
 	int		num_chars_printed;

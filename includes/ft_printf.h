@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:40:51 by jmocniak          #+#    #+#             */
-/*   Updated: 2018/12/23 16:03:21 by jmocniak         ###   ########.fr       */
+/*   Updated: 2018/12/23 16:14:23 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef	struct	s_spec
 	int			isunsigned;
 }				t_spec;
 
-int					ft_printf(const char *restrict format, ...);
+int					ft_printf(char *format, ...);
 int					conv_s(va_list *ap, t_spec *spec);
 void				width_s(char **str, t_spec *spec);
 char				*width_s_2(int pad_len, char *padding, char c);
