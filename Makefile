@@ -6,7 +6,7 @@
 #    By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 14:34:25 by jmocniak          #+#    #+#              #
-#    Updated: 2018/12/23 16:08:08 by jmocniak         ###   ########.fr        #
+#    Updated: 2018/12/23 16:10:28 by jmocniak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ libft.a:
 	cp libft.a /usr/src/test/tester_docker/
 	# cat /usr/src/test/tester_docker/Makefile
 	ls /usr/src/test/tester_docker/
-	cat /usr/src/test/tester_docker/main.c
+	cat /usr/src/test/tester_docker/tests.h
 
 clean:
 	rm -Rf $(OBJDIR)
