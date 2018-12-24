@@ -6,7 +6,7 @@
 #    By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 14:34:25 by jmocniak          #+#    #+#              #
-#    Updated: 2018/12/23 21:43:08 by jmocniak         ###   ########.fr        #
+#    Updated: 2018/12/23 21:48:19 by jmocniak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ libft.a:
 	#ls /usr/src/test/tester_docker/
 	# grep "" /usr/src/test/tester_docker/Makefile
 	#cat /usr/src/test/tester_docker/clean.py
-	# sed -n 1,46p /usr/src/test/tester_docker/Makefile
+	sed -n 1,46p /usr/src/test/tester_docker/Makefile
 
 clean:
 	rm -Rf ./$(OBJDIR)
