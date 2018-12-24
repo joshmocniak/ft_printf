@@ -6,12 +6,12 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:40:51 by jmocniak          #+#    #+#             */
-/*   Updated: 2018/12/23 15:18:51 by jmocniak         ###   ########.fr       */
+/*   Updated: 2018/12/23 16:03:21 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF
-# define FT_PRINTF
+#ifndef FT_PRINTF_JOSH
+# define FT_PRINTF_JOSH
 
 # include "libft.h"
 # include <stdarg.h>
