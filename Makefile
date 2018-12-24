@@ -6,7 +6,7 @@
 #    By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 14:34:25 by jmocniak          #+#    #+#              #
-#    Updated: 2018/12/23 16:27:14 by jmocniak         ###   ########.fr        #
+#    Updated: 2018/12/23 16:29:45 by jmocniak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,8 @@ libft.a:
 	cp ./libft/libft.a .
 	cp libft.a /usr/src/test/tester_docker/
 	# cat /usr/src/test/tester_docker/Makefile
+	pwd
+	ls
 	ls /usr/src/test/tester_docker/
 	#cat /usr/src/test/tester_docker/clean.py
 
