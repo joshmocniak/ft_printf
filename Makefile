@@ -6,7 +6,7 @@
 #    By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 14:34:25 by jmocniak          #+#    #+#              #
-#    Updated: 2018/12/23 16:31:24 by jmocniak         ###   ########.fr        #
+#    Updated: 2018/12/23 16:34:42 by jmocniak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ libft.a:
 	pwd
 	ls
 	ls /usr/src/test/tester_docker/
-	cat /usr/src/test/tester_docker/Makefile
+	cat -e /usr/src/test/tester_docker/Makefile
 	cat /usr/src/test/tester_docker/clean.py
 
 clean:
