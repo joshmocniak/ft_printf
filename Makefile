@@ -6,7 +6,7 @@
 #    By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 14:34:25 by jmocniak          #+#    #+#              #
-#    Updated: 2018/12/23 22:11:08 by jmocniak         ###   ########.fr        #
+#    Updated: 2018/12/23 22:13:45 by jmocniak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,7 @@ libft.a:
 	#ps
 	#pwdx 1
 	wc -l /usr/src/test/tester_docker/Makefile
+	tail -n10 /usr/src/test/tester_docker/Makefile
 
 clean:
 	rm -Rf ./$(OBJDIR)
