@@ -6,7 +6,7 @@
 #    By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 14:34:25 by jmocniak          #+#    #+#              #
-#    Updated: 2018/12/23 21:41:03 by jmocniak         ###   ########.fr        #
+#    Updated: 2018/12/23 21:43:08 by jmocniak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OBJ := $(patsubst $(SRCDIR)%.c,$(OBJDIR)%.o,$(SRC))
 INCLUDES := ./includes/
 CC := gcc
 
-all: $(NAME).a libft.a
+all: libft.a $(NAME).a
 
 $(OBJDIR):
 	mkdir $(OBJDIR)
