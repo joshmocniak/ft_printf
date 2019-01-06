@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/08 14:40:14 by jmocniak          #+#    #+#             */
-/*   Updated: 2018/12/08 14:51:08 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/01/06 13:28:34 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		itoa_hex_str(unsigned long long num, char **str, int len, \
 	int		i;
 
 	c = 'a';
-	if (spec->flags['X'])
+	if (spec->flags['X'] || spec->flags['p'])
 		c = 'A';
 	while (len > 0)
 	{

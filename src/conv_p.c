@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 16:08:58 by jmocniak          #+#    #+#             */
-/*   Updated: 2018/12/02 23:37:43 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/01/06 13:32:14 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int		conv_p(va_list *ap, t_spec *spec)
 	void	*vp;
 
 	vp = va_arg(*ap, void *);
-	str = itoahex((unsigned long)vp);
+	itoa_hex((unsigned long)vp, &str, spec);
 	precision_p(&str, spec);
 	width_p(&str, spec);
 	len = ft_strlen(str);

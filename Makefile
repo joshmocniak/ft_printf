@@ -6,11 +6,12 @@
 #    By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 14:34:25 by jmocniak          #+#    #+#              #
-#    Updated: 2018/12/29 03:36:57 by jmocniak         ###   ########.fr        #
+#    Updated: 2019/01/05 18:35:12 by jmocniak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
+LIBFT = libft/libft.a
 CC = gcc
 INC = includes/ft_printf.h \
 	  libft/libft.h

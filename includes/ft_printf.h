@@ -6,14 +6,14 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:40:51 by jmocniak          #+#    #+#             */
-/*   Updated: 2018/12/23 20:46:47 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/01/06 13:31:33 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_JOSH
 # define FT_PRINTF_JOSH
 
-# include "libft.h"
+# include "../libft/libft.h"
 # include <stdarg.h>
 
 # define LD_SIGNIFICANDWIDTH 64
@@ -37,7 +37,6 @@ void				width_s(char **str, t_spec *spec);
 char				*width_s_2(int pad_len, char *padding, char c);
 int					conv_c(va_list *ap, t_spec *spec);
 int					conv_p(va_list *ap, t_spec *spec);
-char				*itoahex(unsigned long n);
 int					conv_d(va_list *ap, t_spec *spec);
 void				itoa_d(long long num, char **str, t_spec *spec);
 void				itoa_u(unsigned long long num, char **str);
