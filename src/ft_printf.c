@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/04 19:47:10 by jmocniak          #+#    #+#             */
-/*   Updated: 2018/12/23 20:47:15 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/03 02:27:24 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,15 +62,16 @@ void	get_width_precision(const char * restrict * format, int *wdt, int *prc)
 	int	result;
 
 	result = 0;
-	if (ft_isdigit(**format))
-	{
+//	if (ft_isdigit(**format))
+//	{
 		while (ft_isdigit(**format))
 		{
 			result = result * 10 + (**format - '0');
 			(*format)++;
 		}
-		*wdt = result;
-	}
+		if (result)
+			*wdt = result;
+//	}
 	if (**format == '.')
 	{
 		(*format)++;
@@ -127,7 +128,11 @@ int		convert_next_arg(const char * restrict * format, va_list *ap,
 	get_width_precision(format, &spec->width, &spec->precision);	
 	get_len_modifier(format, spec->flags);
 	if ((conv = get_conv_spec(format, spec->flags)) == 0)
+	{
+		if (**format)
+			return (conv_single(spec, *(*format)++));
 		return (0);
+	}
 	return (dispatch[(int)conv](ap, spec));
 }
 
@@ -189,7 +194,8 @@ void	init_spec(t_spec *spec)
 	spec->precision = -1;
 	spec->ispos = 0;
 	spec->isunsigned = 0;
-	spec->flags = (char *)ft_memalloc(sizeof(char) * 128);
+	//spec->flags = (char *)ft_memalloc(sizeof(char) * 128);
+	ft_bzero(spec->flags, 128);
 }
 
 int		helper(va_list *ap, const char * restrict format)
@@ -200,7 +206,8 @@ int		helper(va_list *ap, const char * restrict format)
 	//int		flags[128];
 	t_spec	spec;
 
-	init_spec(&spec);
+	//init_spec(&spec);	
+	spec.flags = (char *)ft_memalloc(sizeof(char) * 128);
 	init_dispatch(dispatch);
 	num = 0;
 	while(*format)
@@ -208,9 +215,10 @@ int		helper(va_list *ap, const char * restrict format)
 		if (*format == '%')
 		{
 			format++;
+			init_spec(&spec);
 			num_printed = convert_next_arg(&format, ap, dispatch, &spec);
-			if (num_printed == 0)
-				return (-1);
+			//if (num_printed == 0)
+			//	return (-1);
 			num += num_printed;
 		}
 		else

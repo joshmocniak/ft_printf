@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:40:51 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/01/06 13:31:33 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/03 02:32:43 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ void				suffix(char **str, char *post);
 int					conv_f(va_list *ap, t_spec *spec);
 void				ldtoa(long double num, char **str, t_spec *spec);
 void				dtoa(double num, char **str, t_spec *spec);
+int					conv_single(t_spec *spec, char c);
 
 #endif

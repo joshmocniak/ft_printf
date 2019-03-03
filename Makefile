@@ -6,7 +6,7 @@
 #    By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 14:34:25 by jmocniak          #+#    #+#              #
-#    Updated: 2019/01/05 18:35:12 by jmocniak         ###   ########.fr        #
+#    Updated: 2019/03/03 02:31:51 by jmocniak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC = src/conv_c.c \
 	src/conv_s.c \
 	src/conv_u.c \
 	src/conv_x.c \
+	src/conv_single.c \
 	src/dtoa.c \
 	src/ft_printf.c \
 	src/itoa_d.c \
@@ -40,6 +41,7 @@ OBJ = conv_c.o \
 	conv_s.o \
 	conv_u.o \
 	conv_x.o \
+	conv_single.o \
 	dtoa.o \
 	ft_printf.o \
 	itoa_d.o \
