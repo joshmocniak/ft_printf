@@ -6,17 +6,17 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/08 14:40:14 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/05 21:17:11 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/06 00:23:19 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void		itoa_hex_str(unsigned long long num, char **str, int len, \
+static void		itoa_hex_str(uintmax_t num, char **str, int len, \
 		t_spec *spec)
 {
-	char	c;
-	int		i;
+	char			c;
+	uintmax_t		i;
 
 	c = 'a';
 	if (spec->flags['X'] || spec->flags['p'])
@@ -33,7 +33,7 @@ static void		itoa_hex_str(unsigned long long num, char **str, int len, \
 	}
 }
 
-static int			itoa_hex_len(unsigned long long num)
+static int			itoa_hex_len(uintmax_t num)
 {
 	int		len;
 
@@ -43,7 +43,7 @@ static int			itoa_hex_len(unsigned long long num)
 	return (++len);
 }
 
-void		itoa_hex(unsigned long long num, char **str, t_spec *spec)
+void		j_itoa_hex(uintmax_t num, char **str, t_spec *spec)
 {
 	int		len;
 

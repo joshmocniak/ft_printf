@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:40:51 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/03 02:32:43 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/06 00:23:52 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,8 @@ int					conv_f(va_list *ap, t_spec *spec);
 void				ldtoa(long double num, char **str, t_spec *spec);
 void				dtoa(double num, char **str, t_spec *spec);
 int					conv_single(t_spec *spec, char c);
+void				j_itoa_hex(uintmax_t num, char **str, t_spec *spec);
+uintmax_t			j_lenmod(va_list *ap, t_spec *spec);
+int					j_conv_x(va_list *ap, t_spec *spec);
 
 #endif

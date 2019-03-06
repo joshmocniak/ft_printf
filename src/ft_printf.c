@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/04 19:47:10 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/03 02:27:24 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/05 21:20:17 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,8 @@ int		convert_next_arg(const char * restrict * format, va_list *ap,
 			return (conv_single(spec, *(*format)++));
 		return (0);
 	}
+	if (spec->flags[(int)'j'] && spec->flags[(int)'x'])
+		return (j_conv_x(ap, spec));
 	return (dispatch[(int)conv](ap, spec));
 }
 
