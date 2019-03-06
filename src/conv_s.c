@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 16:21:44 by jmocniak          #+#    #+#             */
-/*   Updated: 2018/11/30 15:49:58 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/06 13:24:40 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,10 @@ int		conv_s(va_list *ap, t_spec *spec)
 	char	*str;
 	int		len;
 
-	str = ft_strdup(va_arg(*ap, char *));
+	if ((str = va_arg(*ap, char *)))
+		str = ft_strdup(va_arg(*ap, char *));
+	else
+		str = ft_strdup("(null)");
 	precision_s(&str, spec);
 	width_s(&str, spec);
 	len = ft_strlen(str);

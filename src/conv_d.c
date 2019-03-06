@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 18:10:15 by jmocniak          #+#    #+#             */
-/*   Updated: 2018/12/15 16:28:55 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/06 14:55:31 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,11 @@ void		precision_d(char **str, t_spec *spec)
 		free(padding);
 		*str = new;
 	}
+	else if (spec->precision == 0)
+	{
+		free(*str);
+		*str = (char *)ft_memalloc(sizeof(char) * 1);
+	}
 	prefix_octal(str, spec);
 }
 
@@ -63,9 +68,9 @@ void		prefix_sign(char **str, t_spec *spec)
 {
 	if (spec->isunsigned)
 	{
-		if (spec->flags['#'] && spec->flags['x'])
+		if (spec->flags['#'] && spec->flags['x'] && str[0][0] != '0' && str[0][0] != 0)
 			prefix("0x", str);
-		if (spec->flags['#'] && spec->flags['X'])
+		if (spec->flags['#'] && spec->flags['X'] && str[0][0] != '0' && str[0][0] != 0)
 			prefix("0X", str);
 		return ;
 	}
@@ -128,9 +133,14 @@ int			conv_d(va_list *ap, t_spec *spec)
 	long long	num;
 	
 	num = lenmod(ap, spec);
-	itoa_d(num, &str, spec);
-	precision_d(&str, spec);
-	width_d(&str, spec);
+	if (num == -9223372036854775808)
+		str = ft_strdup("-9223372036854775808");
+	else
+	{
+		itoa_d(num, &str, spec);
+		precision_d(&str, spec);
+		width_d(&str, spec);
+	}
 	len = ft_strlen(str);
 	ft_putstr(str);
 	free(str);	

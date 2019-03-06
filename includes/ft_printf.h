@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:40:51 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/06 00:23:52 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/06 14:08:13 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 typedef	struct	s_spec
 {
 	char		*flags;
+	int			isnull;
 	int			width;
 	int			precision;
 	int			ispos;
