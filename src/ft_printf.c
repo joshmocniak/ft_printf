@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/04 19:47:10 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/06 14:09:14 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/06 17:43:22 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,6 +195,7 @@ void	init_spec(t_spec *spec)
 	spec->width = -1;
 	spec->precision = -1;
 	spec->isnull = 0;
+	spec->iszero = 0;
 	spec->ispos = 0;
 	spec->isunsigned = 0;
 	//spec->flags = (char *)ft_memalloc(sizeof(char) * 128);
