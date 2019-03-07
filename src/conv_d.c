@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 18:10:15 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/07 00:18:43 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/07 00:25:38 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,16 +138,6 @@ int			conv_d(va_list *ap, t_spec *spec)
 	itoa_d(num, &str, spec);
 	precision_d(&str, spec);
 	width_d(&str, spec);
-	/*
-	if (num == -9223372036854775808)
-		str = ft_strdup("-9223372036854775808");
-	else
-	{
-		itoa_d(num, &str, spec);
-		precision_d(&str, spec);
-		width_d(&str, spec);
-	}
-	*/
 	len = ft_strlen(str);
 	ft_putstr(str);
 	free(str);	
