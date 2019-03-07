@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 18:10:15 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/07 00:25:38 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/07 00:55:21 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,10 @@ void		precision_d(char **str, t_spec *spec)
 		free(padding);
 		*str = new;
 	}
-	else if (spec->precision == 0)
+	//
+	// FIX RIGHT HERE
+	//
+	else if (spec->precision == 0 && spec->iszero)
 	{
 		free(*str);
 		*str = (char *)ft_memalloc(sizeof(char) * 1);
