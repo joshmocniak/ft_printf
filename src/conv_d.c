@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 18:10:15 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/07 00:55:21 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/08 18:18:09 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void		suffix(char **str, char *post)
 
 void		prefix_octal(char **str, t_spec *spec)
 {
-	if (spec->flags['o'] && spec->flags['#'] && (*str)[0] != '0')
+	if (spec->flags['o'] && spec->flags['#'])
 		prefix("0", str);
 }
 

@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/04 19:47:10 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/06 17:43:22 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/08 18:01:47 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,27 +138,6 @@ int		convert_next_arg(const char * restrict * format, va_list *ap,
 	return (dispatch[(int)conv](ap, spec));
 }
 
-/*
-void	init_dispatch_modifier(int (*dispatch[])())
-{
-	dispatch['h'] = conv_h();
-	dispatch['l'] = conv_l();
-	dispatch['j'] = conv_j();
-	dispatch['t'] = conv_t();
-	dispatch['z'] = conv_z();
-}
-
-void	init_dispatch_flags(int (*dispatch[])())
-{
-	dispatch['#'] = conv_hash();
-	dispatch['0'] = conv_zero();
-	dispatch['-'] = conv_dash();
-	dispatch[' '] = conv_space();
-	dispatch['+'] = conv_plus();
-	init_dispatch_modifier(dispatch);
-}
-*/
-
 void	init_dispatch(int (*dispatch[])())
 {
 	dispatch['s'] = conv_s;
@@ -171,23 +150,6 @@ void	init_dispatch(int (*dispatch[])())
 	dispatch['x'] = conv_x;
 	dispatch['X'] = conv_x;
 	dispatch['f'] = conv_f;
-
-/*
-	dispatch['S'] = conv_s_upper();
-	dispatch['p'] = conv_p();
-	dispatch['d'] = conv_d();
-	dispatch['D'] = conv_d_upper();
-	dispatch['i'] = conv_i();
-	dispatch['o'] = conv_o();
-	dispatch['O'] = conv_o_upper();
-	dispatch['u'] = conv_u();
-	dispatch['U'] = conv_u_upper();
-	dispatch['x'] = conv_x();
-	dispatch['X'] = conv_x_upper();
-	dispatch['c'] = conv_c();
-	dispatch['C'] = conv_c_upper();
-	init_dispatch_flags(dispatch);
-*/
 }
 
 void	init_spec(t_spec *spec)
@@ -198,7 +160,6 @@ void	init_spec(t_spec *spec)
 	spec->iszero = 0;
 	spec->ispos = 0;
 	spec->isunsigned = 0;
-	//spec->flags = (char *)ft_memalloc(sizeof(char) * 128);
 	ft_bzero(spec->flags, 128);
 }
 
@@ -207,10 +168,8 @@ int		helper(va_list *ap, const char * restrict format)
 	int		num;
 	int		(*dispatch[128])(va_list *ap, t_spec *spec);
 	int		num_printed;
-	//int		flags[128];
 	t_spec	spec;
 
-	//init_spec(&spec);	
 	spec.flags = (char *)ft_memalloc(sizeof(char) * 128);
 	init_dispatch(dispatch);
 	num = 0;
