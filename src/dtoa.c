@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/08 19:01:45 by jmocniak          #+#    #+#             */
-/*   Updated: 2018/12/16 17:33:19 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 00:24:36 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ long		power(int base, int exp)
 		i++;
 	}
 	return (result);
-}	
+}
 
 void		itoa_snippit(char **str, int i, long val)
 {
@@ -74,7 +74,7 @@ void		ldtoa(long double num, char **str, t_spec *spec)
 	int		i;
 	char	*new;
 	char	*combined;
-	
+
 	if (!(num >= 0 && (spec->ispos = 1)))
 		num = -num;
 	i = 0;
@@ -102,7 +102,7 @@ void		dtoa(double num, char **str, t_spec *spec)
 	int		i;
 	char	*new;
 	char	*combined;
-	
+
 	if (!(num >= 0 && (spec->ispos = 1)))
 		num = -num;
 	i = 0;

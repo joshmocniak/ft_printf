@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/08 18:45:47 by jmocniak          #+#    #+#             */
-/*   Updated: 2018/12/16 16:56:10 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 00:07:21 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int			conv_f(va_list *ap, t_spec *spec)
 {
 	int			len;
 	char		*str;
-	
+
 	if (spec->flags['L'])
 		ldtoa(va_arg(*ap, long double), &str, spec);
 	else
@@ -24,6 +24,6 @@ int			conv_f(va_list *ap, t_spec *spec)
 	width_d(&str, spec);
 	len = ft_strlen(str);
 	ft_putstr(str);
-	free(str);	
+	free(str);
 	return (len);
 }

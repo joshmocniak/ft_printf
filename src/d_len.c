@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   conv_u.c                                           :+:      :+:    :+:   */
+/*   d_len.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/07 18:17:50 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/11 00:22:40 by jmocniak         ###   ########.fr       */
+/*   Created: 2019/03/11 00:31:21 by jmocniak          #+#    #+#             */
+/*   Updated: 2019/03/11 00:31:40 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			conv_u(va_list *ap, t_spec *spec)
+int			d_len(long val)
 {
-	int			len;
-	char		*str;
-	long long	num;
+	int	i;
 
-	spec->isunsigned = 1;
-	num = lenmod_unsigned(ap, spec);
-	itoa_u(num, &str);
-	precision_d(&str, spec);
-	width_d(&str, spec);
-	len = ft_strlen(str);
-	ft_putstr(str);
-	free(str);
-	return (len);
+	i = 0;
+	while ((val /= 10))
+		i++;
+	return (++i);
 }

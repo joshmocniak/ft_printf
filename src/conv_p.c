@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 16:08:58 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/01/06 13:32:14 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 00:18:32 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,37 +45,39 @@ void	prefix_0x(char **str)
 	*str = new;
 }
 
+void	width_p_2(char **str, t_spec *spec, t_width_d v)
+{
+	prefix_0x(str);
+	v.new = ft_strjoin(width_s_2(vpad_len, v.padding, ' '), *str);
+	free(v.padding);
+	free(*str);
+	*str = v.new;
+}
+
 void	width_p(char **str, t_spec *spec)
 {
-	int		len;
-	char	*padding;
-	char	*new;
-	int		pad_len;
-	
-	if (spec->width == -1 || spec->width <= (len = ft_strlen(*str)) + 2)
+	t_width_d	v;
+
+	if (spec->width == -1 || spec->width <= (v.len = ft_strlen(*str)) + 2)
 	{
 		prefix_0x(str);
 		return ;
 	}
-	pad_len = spec->width - (len + 2);
-	padding = (char *)ft_memalloc(pad_len + 1);
+	v.pad_len = spec->width - (v.len + 2);
+	v.padding = (char *)ft_memalloc(v.pad_len + 1);
 	if (spec->flags['-'])
-		new = ft_strjoin(*str, width_s_2(pad_len, padding, ' '));
+		v.new = ft_strjoin(*str, width_s_2(v.pad_len, v.padding, ' '));
 	else if (spec->flags['0'] && spec->precision == -1)
-		new = ft_strjoin(width_s_2(pad_len, padding, '0'), *str);
+		v.new = ft_strjoin(width_s_2(v.pad_len, v.padding, '0'), *str);
 	else
 	{
-		prefix_0x(str);
-		new = ft_strjoin(width_s_2(pad_len, padding, ' '), *str);
-		free(padding);
-		free(*str);
-		*str = new;
+		width_p_2(str, spec, v);
 		return ;
-	}	
+	}
 	prefix_0x(&new);
-	free(padding);
+	free(v.padding);
 	free(*str);
-	*str = new;
+	*str = v.new;
 }
 
 int		conv_p(va_list *ap, t_spec *spec)

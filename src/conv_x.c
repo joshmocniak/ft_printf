@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/08 14:39:12 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/07 00:17:25 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 00:23:01 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int			conv_x(va_list *ap, t_spec *spec)
 	width_d(&str, spec);
 	len = ft_strlen(str);
 	ft_putstr(str);
-	free(str);	
+	free(str);
 	return (len);
 }

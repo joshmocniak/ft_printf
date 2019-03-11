@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:40:51 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/11 00:00:45 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 00:32:21 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,6 @@ void				prefix_sign(char **str, t_spec *spec);
 void				prefix_octal(char **str, t_spec *spec);
 void				suffix(char **str, char *post);
 void				prefix(char *pre, char **str);
+int					d_len(long val);
 
 #endif
