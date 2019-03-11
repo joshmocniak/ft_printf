@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 21:01:35 by jmocniak          #+#    #+#             */
-/*   Updated: 2018/12/08 12:20:46 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 00:36:04 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int			itoa_len(long long num)
 	int		len;
 
 	len = 0;
-	while((num /= 10))
+	while ((num /= 10))
 		len++;
 	return (++len);
 }
@@ -37,7 +37,7 @@ void		itoa_d(long long num, char **str, t_spec *spec)
 
 	if (num >= 0)
 		spec->ispos = 1;
-	else	
+	else
 		num = -num;
 	len = itoa_len(num);
 	*str = (char *)ft_memalloc(sizeof(char) * (len + 1));

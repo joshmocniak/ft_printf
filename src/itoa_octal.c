@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 23:54:59 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/08 18:02:45 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 00:37:53 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int			itoa_oct_len(unsigned long long num)
 	int		len;
 
 	len = 0;
-	while((num /= 8))
+	while ((num /= 8))
 		len++;
 	return (++len);
 }
@@ -35,12 +35,7 @@ void		itoa_octal(unsigned long long num, char **str)
 {
 	int		len;
 
-//	if (num != 0)
-//	{
-		len = itoa_oct_len(num);
-		*str = (char *)ft_memalloc(sizeof(char) * (len + 1));
-		itoa_oct_str(num, str, len);
-//	}
-//	else
-//		*str = ft_strdup("");
+	len = itoa_oct_len(num);
+	*str = (char *)ft_memalloc(sizeof(char) * (len + 1));
+	itoa_oct_str(num, str, len);
 }

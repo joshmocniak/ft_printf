@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 22:01:21 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/06 00:24:35 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 00:38:53 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ unsigned long long	lenmod_unsigned(va_list *ap, t_spec *spec)
 	return (num);
 }
 
-uintmax_t j_lenmod(va_list *ap, t_spec *spec)
+uintmax_t			j_lenmod(va_list *ap, t_spec *spec)
 {
 	uintmax_t	num;
 

@@ -6,21 +6,11 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/08 19:01:45 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/11 00:24:36 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 00:35:20 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int			d_len(long val)
-{
-	int	i;
-
-	i = 0;
-	while ((val /= 10))
-		i++;
-	return (++i);
-}
 
 long		power(int base, int exp)
 {

@@ -6,13 +6,13 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/08 14:40:14 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/09 18:00:12 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 00:36:58 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void		itoa_hex_str(unsigned long long num, char **str, int len, \
+static void	itoa_hex_str(unsigned long long num, char **str, int len, \
 		t_spec *spec)
 {
 	char	c;
@@ -33,12 +33,12 @@ static void		itoa_hex_str(unsigned long long num, char **str, int len, \
 	}
 }
 
-static int			itoa_hex_len(unsigned long long num)
+static int	itoa_hex_len(unsigned long long num)
 {
 	int		len;
 
 	len = 0;
-	while((num /= 16))
+	while ((num /= 16))
 		len++;
 	return (++len);
 }
