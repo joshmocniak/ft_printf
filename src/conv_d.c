@@ -6,37 +6,11 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 18:10:15 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/10 23:44:48 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 00:02:08 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void		prefix(char *pre, char **str)
-{
-	char	*new;
-
-	new = ft_strjoin(pre, *str);
-	free(*str);
-	*str = new;
-}
-
-void		suffix(char **str, char *post)
-{
-	char	*new;
-
-	new = ft_strjoin(*str, post);
-	free(*str);
-	*str = new;
-}
-
-void		prefix_octal(char **str, t_spec *spec)
-{
-//	if (spec->flags['o'] && spec->flags['#'] && !spec->iszero && spec->precision > 0)
-
-	if (spec->flags['o'] && spec->flags['#'] && str[0][0] != '0')
-		prefix("0", str);
-}
 
 void		precision_d(char **str, t_spec *spec)
 {
@@ -58,9 +32,6 @@ void		precision_d(char **str, t_spec *spec)
 		free(padding);
 		*str = new;
 	}
-	//
-	// FIX RIGHT HERE
-	//
 	else if (spec->precision == 0 && spec->iszero)
 	{
 		free(*str);
@@ -69,63 +40,47 @@ void		precision_d(char **str, t_spec *spec)
 	prefix_octal(str, spec);
 }
 
-void		prefix_sign(char **str, t_spec *spec)
+void		width_d_2(char **str, t_spec *spec, t_width_d v)
 {
-	if (spec->isunsigned)
+	int		i;
+
+	i = 0;
+	while (i < v.pad_len)
+		v.padding[i++] = v.c;
+	if (spec->flags['-'])
+		v.new = ft_strjoin(*str, v.padding);
+	else if (v.c == '0')
+		v.new = ft_strjoin(v.padding, *str);
+	else
 	{
-		if (spec->flags['#'] && spec->flags['x'] && !(spec->iszero))
-			prefix("0x", str);
-		if (spec->flags['#'] && spec->flags['X'] && !(spec->iszero))
-			prefix("0X", str);
-		return ;
+		prefix_sign(str, spec);
+		v.new = ft_strjoin(v.padding, *str);
 	}
-	if (!spec->ispos)
-		prefix("-", str);
-	else if (spec->flags['+'])
-		prefix("+", str);
-	else if (spec->flags[' '])
-		prefix(" ", str);
+	free(*str);
+	free(v.padding);
+	*str = v.new;
+	if (spec->flags['-'] || c == '0')
+		prefix_sign(str, spec);
 }
 
 void		width_d(char **str, t_spec *spec)
 {
-	int		pad_len;
-	int		len;
-	char	c;
-	int		i;
-	char	*new;
-	char	*padding;
+	t_width_d	v;
 
 	len = ft_strlen(*str);
-	if (spec->width != -1 && (pad_len = spec->width - len) > 0)
+	if (spec->width != -1 && (v.pad_len = spec->width - v.len) > 0)
 	{
 		if (!spec->isunsigned && (!spec->ispos || spec->flags[' '] || \
 					spec->flags['+']))
-			pad_len--;
+			v.pad_len--;
 		else if (spec->flags['#'] && (spec->flags['x'] || spec->flags['X']))
-			pad_len -= 2;
-		padding = (char *)ft_memalloc(sizeof(char) * (pad_len + 1));
-		c = ' ';
+			v.pad_len -= 2;
+		v.padding = (char *)ft_memalloc(sizeof(char) * (v.pad_len + 1));
+		v.c = ' ';
 		if ((spec->precision == -1 || spec->flags['f']) && !spec->flags['-'] \
 				&& spec->flags['0'])
-			c = '0';
-		i = 0;
-		while (i < pad_len)
-			padding[i++] = c;
-		if (spec->flags['-'])
-			new = ft_strjoin(*str, padding);
-		else if (c == '0')
-			new = ft_strjoin(padding, *str);
-		else
-		{
-			prefix_sign(str, spec);
-			new = ft_strjoin(padding, *str);
-		}
-		free(*str);
-		free(padding);
-		*str = new;
-		if (spec->flags['-'] || c == '0')
-			prefix_sign(str, spec);
+			v.c = '0';
+		width_d_2(str, spec, v);
 	}
 	else
 		prefix_sign(str, spec);

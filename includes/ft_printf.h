@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:40:51 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/06 17:43:41 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 00:00:45 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,15 @@ typedef	struct	s_spec
 	int			ispos;
 	int			isunsigned;
 }				t_spec;
+
+typedef struct	s_width_d
+{
+	int			pad_len;
+	int			len;
+	char		c;
+	char		*new;
+	char		*padding;
+}				t_width_d;
 
 int					ft_printf(const char *format, ...);
 int					conv_s(va_list *ap, t_spec *spec);
@@ -60,5 +69,9 @@ int					conv_single(t_spec *spec, char c);
 void				j_itoa_hex(uintmax_t num, char **str, t_spec *spec);
 uintmax_t			j_lenmod(va_list *ap, t_spec *spec);
 int					j_conv_x(va_list *ap, t_spec *spec);
+void				prefix_sign(char **str, t_spec *spec);
+void				prefix_octal(char **str, t_spec *spec);
+void				suffix(char **str, char *post);
+void				prefix(char *pre, char **str);
 
 #endif
