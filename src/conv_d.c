@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 18:10:15 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/11 00:02:08 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 00:06:17 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void		width_d_2(char **str, t_spec *spec, t_width_d v)
 	free(*str);
 	free(v.padding);
 	*str = v.new;
-	if (spec->flags['-'] || c == '0')
+	if (spec->flags['-'] || v.c == '0')
 		prefix_sign(str, spec);
 }
 
@@ -67,7 +67,7 @@ void		width_d(char **str, t_spec *spec)
 {
 	t_width_d	v;
 
-	len = ft_strlen(*str);
+	v.len = ft_strlen(*str);
 	if (spec->width != -1 && (v.pad_len = spec->width - v.len) > 0)
 	{
 		if (!spec->isunsigned && (!spec->ispos || spec->flags[' '] || \
@@ -91,7 +91,7 @@ int			conv_d(va_list *ap, t_spec *spec)
 	int			len;
 	char		*str;
 	long long	num;
-	
+
 	num = lenmod(ap, spec);
 	if (num == 0)
 		spec->iszero = 1;
@@ -100,6 +100,6 @@ int			conv_d(va_list *ap, t_spec *spec)
 	width_d(&str, spec);
 	len = ft_strlen(str);
 	ft_putstr(str);
-	free(str);	
+	free(str);
 	return (len);
 }
