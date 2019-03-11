@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/04 19:47:10 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/08 18:01:47 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/09 23:40:21 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,14 @@ char	is_len_mod(char c)
 	return (0);
 }
 
-void	get_len_modifier(const char * restrict * format, char *flags)
+int		get_len_modifier(const char * restrict * format, char *flags)
 {
+	int		more;
+
+	more = 0;
 	if (is_len_mod(**format))
-	{	
+	{
+		more = 1;
 		if (**format == *((*format) + 1))
 		{
 			flags[(int)**format] = 2;
@@ -55,13 +59,16 @@ void	get_len_modifier(const char * restrict * format, char *flags)
 		//skips more than one length modifier
 		(*format)++;
 	}
+	return (more);
 }
 
-void	get_width_precision(const char * restrict * format, int *wdt, int *prc)
+int		get_width_precision(const char * restrict * format, int *wdt, int *prc)
 {
 	int	result;
+	int	more;
 
 	result = 0;
+	more = 0;
 //	if (ft_isdigit(**format))
 //	{
 		while (ft_isdigit(**format))
@@ -70,7 +77,10 @@ void	get_width_precision(const char * restrict * format, int *wdt, int *prc)
 			(*format)++;
 		}
 		if (result)
+		{
 			*wdt = result;
+			more = 1;
+		}
 //	}
 	if (**format == '.')
 	{
@@ -82,7 +92,9 @@ void	get_width_precision(const char * restrict * format, int *wdt, int *prc)
 			(*format)++;
 		}
 		*prc = result;
+		more = 1;
 	}
+	return (more);
 }
 
 char	is_flag(char c)
@@ -92,41 +104,38 @@ char	is_flag(char c)
 	return (0);
 }
 
-void	get_flags(const char * restrict * format, char *flags)
+int		get_flags(const char * restrict * format, char *flags)
 {
+	int		more;
+
+	more = 0;
 	while (is_flag(**format))
 	{
+		more = 1;
 		flags[(int)*(*format)++] = 1;
 	}
+	return (more);
 }
 
 int		convert_next_arg(const char * restrict * format, va_list *ap,
 		int (*dispatch[])(), t_spec *spec)
 {
 	char	conv;
-
-	// CONCERNS:  if there is no conversion specifier found should I print everything
-	// 				after '%'?  If so, then the pointer to '%' should be saved
-	// 				in order to go back and print the following characters.
-	//
-	// 				Also, should each conversion be printed after is is read?
-	// 				Or should a string be appended to after each conversion,
-	// 				only to printing everything after finishing the format string?
-	//
-	// 				In that case, declare the string in helper()
-	// 				then return the string from convert_next_arg()
-	// 				run strlen() on the string to keep track of total chars printed.
-	// 				or keep len and str in a struct that gets returned from 
-	// 				convert_next_arg()
+	int		more;
 
 	if (**format == '%')
 	{
 		ft_putchar((*(*format)++));
 		return (1);
 	}
-	get_flags(format, spec->flags);
-	get_width_precision(format, &spec->width, &spec->precision);	
-	get_len_modifier(format, spec->flags);
+	more = 1;
+	while (more)
+	{
+		more = 0;
+		more += get_flags(format, spec->flags);
+		more += get_width_precision(format, &spec->width, &spec->precision);	
+		more += get_len_modifier(format, spec->flags);
+	}
 	if ((conv = get_conv_spec(format, spec->flags)) == 0)
 	{
 		if (**format)
