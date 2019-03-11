@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/04 19:47:10 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/11 01:10:52 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 01:23:19 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	init_spec(t_spec *spec)
 	ft_bzero(spec->flags, 128);
 }
 
-int		helper(va_list *ap, const char * restrict format)
+int		helper(va_list *ap, const char *restrict format)
 {
 	int		num;
 	int		(*dispatch[128])(va_list *ap, t_spec *spec);
@@ -47,7 +47,7 @@ int		helper(va_list *ap, const char * restrict format)
 	spec.flags = (char *)ft_memalloc(sizeof(char) * 128);
 	init_dispatch(dispatch);
 	num = 0;
-	while(*format)
+	while (*format)
 	{
 		if (*format == '%')
 		{
@@ -61,7 +61,7 @@ int		helper(va_list *ap, const char * restrict format)
 			ft_putchar(*format);
 			num++;
 			format++;
-		}	
+		}
 	}
 	return (num);
 }
@@ -74,5 +74,5 @@ int		ft_printf(const char *format, ...)
 	va_start(ap, format);
 	num_chars_printed = helper(&ap, format);
 	va_end(ap);
-	return(num_chars_printed);
+	return (num_chars_printed);
 }

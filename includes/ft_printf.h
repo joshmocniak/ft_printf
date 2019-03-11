@@ -6,12 +6,12 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:40:51 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/11 01:10:30 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 01:28:37 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_JOSH
-# define FT_PRINTF_JOSH
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include "../libft/libft.h"
 # include <stdarg.h>
@@ -21,26 +21,25 @@
 # define LD_EXPONENTWIDTH 15
 # define D_EXPONENTWIDTH 11
 
-
-typedef	struct	s_spec
+typedef	struct		s_spec
 {
-	char		*flags;
-	int			isnull;
-	int			iszero;
-	int			width;
-	int			precision;
-	int			ispos;
-	int			isunsigned;
-}				t_spec;
+	char			*flags;
+	int				isnull;
+	int				iszero;
+	int				width;
+	int				precision;
+	int				ispos;
+	int				isunsigned;
+}					t_spec;
 
-typedef struct	s_width_d
+typedef struct		s_width_d
 {
-	int			pad_len;
-	int			len;
-	char		c;
-	char		*new;
-	char		*padding;
-}				t_width_d;
+	int				pad_len;
+	int				len;
+	char			c;
+	char			*new;
+	char			*padding;
+}					t_width_d;
 
 int					ft_printf(const char *format, ...);
 int					conv_s(va_list *ap, t_spec *spec);
@@ -74,9 +73,9 @@ void				prefix_octal(char **str, t_spec *spec);
 void				suffix(char **str, char *post);
 void				prefix(char *pre, char **str);
 int					d_len(long val);
-int					get_len_modifier(const char * restrict * format, char *flags);
-char				get_conv_spec(const char * restrict * format, char *flags);
-int					convert_next_arg(const char * restrict * format, va_list *ap, \
-					int (*dispatch[])(), t_spec *spec);
+int					get_len_modifier(const char *restrict *format, char *flags);
+char				get_conv_spec(const char *restrict *format, char *flags);
+int					convert_next_arg(const char *restrict *format, \
+					va_list *ap, int (*dispatch[])(), t_spec *spec);
 
 #endif

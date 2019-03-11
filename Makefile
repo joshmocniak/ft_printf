@@ -6,7 +6,7 @@
 #    By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 14:34:25 by jmocniak          #+#    #+#              #
-#    Updated: 2019/03/11 01:11:40 by jmocniak         ###   ########.fr        #
+#    Updated: 2019/03/11 01:19:25 by jmocniak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,6 @@ SRC = src/conv_c.c \
 	src/itoa_octal.c \
 	src/itoa_u.c \
 	src/lenmod.c \
-	src/j_itoa_hex.c \
-	src/j_conv_x.c \
 	src/prefix_suffix.c \
 	src/d_len.c \
 	src/flags.c \
@@ -55,8 +53,6 @@ OBJ = conv_c.o \
 	itoa_octal.o \
 	itoa_u.o \
 	lenmod.o \
-	j_itoa_hex.o \
-	j_conv_x.o \
 	prefix_suffix.o \
 	d_len.o \
 	flags.o \

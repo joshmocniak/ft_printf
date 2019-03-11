@@ -6,13 +6,13 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 01:09:33 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/11 01:10:47 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 01:25:18 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #includes "ft_printf.h"
 
-int		get_width_precision(const char * restrict * format, int *wdt, int *prc)
+int		get_width_precision(const char *restrict *format, int *wdt, int *prc)
 {
 	int	result;
 	int	more;
@@ -48,7 +48,7 @@ char	is_flag(char c)
 	return (0);
 }
 
-int		get_flags(const char * restrict * format, char *flags)
+int		get_flags(const char *restrict *format, char *flags)
 {
 	int		more;
 
@@ -61,7 +61,7 @@ int		get_flags(const char * restrict * format, char *flags)
 	return (more);
 }
 
-int		convert_next_arg(const char * restrict * format, va_list *ap,
+int		convert_next_arg(const char *restrict *format, va_list *ap,
 		int (*dispatch[])(), t_spec *spec)
 {
 	char	conv;
@@ -77,7 +77,7 @@ int		convert_next_arg(const char * restrict * format, va_list *ap,
 	{
 		more = 0;
 		more += get_flags(format, spec->flags);
-		more += get_width_precision(format, &spec->width, &spec->precision);	
+		more += get_width_precision(format, &spec->width, &spec->precision);
 		more += get_len_modifier(format, spec->flags);
 	}
 	if ((conv = get_conv_spec(format, spec->flags)) == 0)
@@ -86,7 +86,5 @@ int		convert_next_arg(const char * restrict * format, va_list *ap,
 			return (conv_single(spec, *(*format)++));
 		return (0);
 	}
-	if (spec->flags[(int)'j'] && spec->flags[(int)'x'])
-		return (j_conv_x(ap, spec));
 	return (dispatch[(int)conv](ap, spec));
 }

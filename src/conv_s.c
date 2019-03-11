@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 16:21:44 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/07 00:28:12 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 01:24:27 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	precision_s(char **str, t_spec *spec)
 	int		i;
 
 	if (spec->precision == -1)
-		return;
+		return ;
 	if (ft_strlen(*str) > (size_t)spec->precision)
 	{
 		new = (char *)ft_memalloc(spec->precision + 1);
@@ -26,7 +26,7 @@ void	precision_s(char **str, t_spec *spec)
 		while (++i < spec->precision)
 			new[i] = (*str)[i];
 		free(*str);
-		*str = new;	
+		*str = new;
 	}
 }
 
@@ -46,7 +46,7 @@ void	width_s(char **str, t_spec *spec)
 	char	*padding;
 	char	*new;
 	int		pad_len;
-	
+
 	if (spec->width == -1 || spec->width <= (len = ft_strlen(*str)))
 		return ;
 	pad_len = spec->width - len;

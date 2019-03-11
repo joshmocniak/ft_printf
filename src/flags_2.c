@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 01:06:47 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/11 01:07:07 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 01:21:25 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	is_conv_spec(char c)
 	return (0);
 }
 
-char	get_conv_spec(const char * restrict * format, char *flags)
+char	get_conv_spec(const char *restrict *format, char *flags)
 {
 	if (is_conv_spec(**format))
 	{
@@ -38,7 +38,7 @@ char	is_len_mod(char c)
 	return (0);
 }
 
-int		get_len_modifier(const char * restrict * format, char *flags)
+int		get_len_modifier(const char *restrict *format, char *flags)
 {
 	int		more;
 
