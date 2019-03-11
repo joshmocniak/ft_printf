@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 15:40:51 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/11 00:32:21 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 01:10:30 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,9 @@ void				prefix_octal(char **str, t_spec *spec);
 void				suffix(char **str, char *post);
 void				prefix(char *pre, char **str);
 int					d_len(long val);
+int					get_len_modifier(const char * restrict * format, char *flags);
+char				get_conv_spec(const char * restrict * format, char *flags);
+int					convert_next_arg(const char * restrict * format, va_list *ap, \
+					int (*dispatch[])(), t_spec *spec);
 
 #endif
