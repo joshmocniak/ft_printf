@@ -6,11 +6,11 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 01:09:33 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/11 01:25:18 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 01:44:06 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#includes "ft_printf.h"
+#include "ft_printf.h"
 
 int		get_width_precision(const char *restrict *format, int *wdt, int *prc)
 {

@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 16:08:58 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/11 00:18:32 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 01:43:11 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ void	prefix_0x(char **str)
 	*str = new;
 }
 
-void	width_p_2(char **str, t_spec *spec, t_width_d v)
+void	width_p_2(char **str, t_width_d v)
 {
 	prefix_0x(str);
-	v.new = ft_strjoin(width_s_2(vpad_len, v.padding, ' '), *str);
+	v.new = ft_strjoin(width_s_2(v.pad_len, v.padding, ' '), *str);
 	free(v.padding);
 	free(*str);
 	*str = v.new;
@@ -71,10 +71,10 @@ void	width_p(char **str, t_spec *spec)
 		v.new = ft_strjoin(width_s_2(v.pad_len, v.padding, '0'), *str);
 	else
 	{
-		width_p_2(str, spec, v);
+		width_p_2(str, v);
 		return ;
 	}
-	prefix_0x(&new);
+	prefix_0x(&v.new);
 	free(v.padding);
 	free(*str);
 	*str = v.new;
