@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/04 19:47:10 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/11 01:23:19 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 22:06:22 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int		helper(va_list *ap, const char *restrict format)
 			format++;
 		}
 	}
+	free(spec.flags);
 	return (num);
 }
 

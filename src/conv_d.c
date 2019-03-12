@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 18:10:15 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/11 00:06:17 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 22:37:49 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,14 +88,19 @@ void		width_d(char **str, t_spec *spec)
 
 int			conv_d(va_list *ap, t_spec *spec)
 {
-	int			len;
-	char		*str;
-	long long	num;
+	int					len;
+	char				*str;
+	unsigned long long	num_ull;
+	long long			num;
 
-	num = lenmod(ap, spec);
+	num_ull = lenmod(ap, spec);
+	num = (long long)num_ull;
 	if (num == 0)
 		spec->iszero = 1;
-	itoa_d(num, &str, spec);
+	if (num_ull == -9223372036854775808ULL)
+		str = ft_strdup("9223372036854775808");
+	else
+		itoa_d(num, &str, spec);
 	precision_d(&str, spec);
 	width_d(&str, spec);
 	len = ft_strlen(str);

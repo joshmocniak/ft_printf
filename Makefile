@@ -6,7 +6,7 @@
 #    By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 14:34:25 by jmocniak          #+#    #+#              #
-#    Updated: 2019/03/11 01:19:25 by jmocniak         ###   ########.fr        #
+#    Updated: 2019/03/11 22:06:55 by jmocniak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ LIBFT = libft/libft.a
 CC = gcc
 INC = includes/ft_printf.h \
 	  libft/libft.h
-FLAGS := -Wall -Werror -Wextra -I includes/ $(INC) 
+FLAGS := -Wall -Werror -Wextra -I includes/ $(INC)
 SRC = src/conv_c.c \
 	src/conv_d.c \
 	src/conv_f.c \
@@ -56,7 +56,7 @@ OBJ = conv_c.o \
 	prefix_suffix.o \
 	d_len.o \
 	flags.o \
-	flags_w.o \
+	flags_2.o \
 	libft/ft_atoi.o \
 	libft/ft_bzero.o \
 	libft/ft_isalnum.o \
