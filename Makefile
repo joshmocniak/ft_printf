@@ -6,7 +6,7 @@
 #    By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 14:34:25 by jmocniak          #+#    #+#              #
-#    Updated: 2019/03/11 22:06:55 by jmocniak         ###   ########.fr        #
+#    Updated: 2019/03/12 00:34:38 by jmocniak         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -137,7 +137,7 @@ $(LIBFT):
 	@make -C libft
 
 clean:
-	-rm -Rf $(OBJ)
+	rm -Rf $(OBJ)
 	make -C libft clean
 
 fclean: clean
