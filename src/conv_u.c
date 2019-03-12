@@ -6,7 +6,7 @@
 /*   By: jmocniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 18:17:50 by jmocniak          #+#    #+#             */
-/*   Updated: 2019/03/11 00:22:40 by jmocniak         ###   ########.fr       */
+/*   Updated: 2019/03/11 22:54:17 by jmocniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int			conv_u(va_list *ap, t_spec *spec)
 
 	spec->isunsigned = 1;
 	num = lenmod_unsigned(ap, spec);
+	if (num == 0)
+		spec->iszero = 1;
 	itoa_u(num, &str);
 	precision_d(&str, spec);
 	width_d(&str, spec);
