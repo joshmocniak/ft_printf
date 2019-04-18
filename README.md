@@ -63,7 +63,7 @@ The conversion specifiers and their meanings are:
 In no case does a non-existent or small field width cause truncation of a numeric field; if the result
 of a conversion is wider than the field width, the field is expanded to contain the conversion result.
 
-RETURN VALUES
+RETURN VALUES\
 Returns the number of characters printed (not including the trailing `\0' used to end
 output to strings).  Returns a negative value if an error occurs.
 
