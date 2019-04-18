@@ -68,11 +68,10 @@ Returns the number of characters printed (not including the trailing `\0' used t
 output to strings).  Returns a negative value if an error occurs.
 
 
-Usage
+Examples
 -----
 
 test.c
-------
 <pre>
 #include "ft_printf.h"
 
@@ -94,8 +93,7 @@ int		main(void)
 }
 </pre>
 
-output:
-------------
+Output:
 <pre>
 signed decimal:                    -1234
 unsigned decimal:             4294966062
