@@ -72,10 +72,10 @@ Examples
 -----
 
 test.c
-<pre>
+```C
 #include "ft_printf.h"
 
-int		main(void)
+int	main(void)
 {
 	int		*ptr;
 	int		val;
@@ -91,7 +91,7 @@ int		main(void)
 	ft_printf("%-25s%15p\n", "pointer:", (void *)ptr);
 	return (0);
 }
-</pre>
+```
 
 Output:
 <pre>
