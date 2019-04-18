@@ -1,6 +1,6 @@
 # ft_printf
 
-
+Recreated *some* functionality of the C standard Library function printf.\
 Produces output according to a format string.  Writes output to stdout, the standard output stream.
 
 <pre>
@@ -64,7 +64,7 @@ In no case does a non-existent or small field width cause truncation of a numeri
 of a conversion is wider than the field width, the field is expanded to contain the conversion result.
 
 RETURN VALUES\
-Returns the number of characters printed (not including the trailing `\0' used to end
+Returns the number of characters printed (not including the trailing '\0' used to end
 output to strings).  Returns a negative value if an error occurs.
 
 
