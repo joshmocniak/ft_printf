@@ -10,26 +10,13 @@ with the conversion specifier.  After the %, the following appear in sequence:
 
 * Zero or more of the following flags:
 
-  __'#'__\
-  The value should be converted to an 'alternate form'.  For c, d, i, p, s, and u conversions, this option has no 
-  effect.  For o conversions, the precision of the number is increased to force the first character of the output string 
-  to a zero.  For x and X conversions, a non-zero result has the string '0x' (or '0X' for X conversions) prepended to it.  
-  For f conversions, the result will always contain a decimal point, even if no digits follow it (normally, a decimal point 
-  appears in the results of those conversions only if a digit follows).
-
-  __'0' (zero)__\
-  Zero padding.  For all conversions, the converted value is padded on the left with zeros rather than blanks.  If a 
-  precision is given with a numeric conversion (d, i, o, u, x, and X), the 0 flag is ignored.
-
-  __'-'__\
-   A negative field width flag; the converted value is to be left adjusted on the field boundary.  The converted value is 
-   padded on the right with blanks, rather than on the left with blanks or zeros.  A - overrides a 0 if both are given.
-
-  __' ' (space)__\
-   A blank should be left before a positive number produced by a signed conversion (d, f, or i).
-
-  __'+'__\
-   A sign must always be placed before a number produced by a signed conversion.  A + overrides a space if both are used.
+| Flags | |
+| :-| :- |
+| '#' |  The value should be converted to an 'alternate form'.  For c, d, i, p, s, and u conversions, this option has no effect.  For o conversions, the precision of the number is increased to force the first character of the output string to a zero.  For x and X conversions, a non-zero result has the string '0x' (or '0X' for X conversions) prepended to it.  For f conversions, the result will always contain a decimal point, even if no digits follow it (normally, a decimal point appears in the results of those conversions only if a digit follows). |
+| '0' (zero) | Zero padding.  For all conversions, the converted value is padded on the left with zeros rather than blanks.  If a precision is given with a numeric conversion (d, i, o, u, x, and X), the 0 flag is ignored. |
+| '-' | A negative field width flag; the converted value is to be left adjusted on the field boundary.  The converted value is padded on the right with blanks, rather than on the left with blanks or zeros.  A - overrides a 0 if both are given. |
+| ' ' (space) | A blank should be left before a positive number produced by a signed conversion (d, f, or i). |
+| '+' | A sign must always be placed before a number produced by a signed conversion.  A + overrides a space if both are used. |
 
 * An optional decimal digit string specifying a minimum field width.  If the converted value has fewer characters than the 
 field width, it will be padded with spaces on the left (or right, if the left-adjustment flag has been given) to fill out 
@@ -42,21 +29,21 @@ from a string for s conversions.
 
 * An optional length modifier, that specifies the size of the argument.  
 
-<pre>
-         The following length modifiers are valid for the d, i, o, u, x, or X conversion:
-         
-         Modifier          d, i           o, u, x, X
-         hh                signed char    unsigned char
-         h                 short          unsigned short
-         l (ell)           long           unsigned long
-         ll (ell ell)      long long      unsigned long long
+	The following length modifiers are valid for the d, i, o, u, x, or X conversion:
 
-         The following length modifier is valid for the f conversion:
+| Modifier | d, i | o, u, x, X |
+| :- | :- | :- |
+| hh | signed char | unsigned char |
+| h | short | unsigned short |
+| l (ell) | long | unsigned long |
+| ll (ell ell) | long long | unsigned long long |
 
-         Modifier    f
-         l (ell)     double (ignored, same behavior as without it)
-         L           long double
-</pre>
+	The following length modifier is valid for the f conversion:
+
+| Modifier | f |
+| :- | :- |
+| l (ell) | double (ignored, same behavior as without it) |
+| L | long double |
 
 The conversion specifiers and their meanings are:
 
